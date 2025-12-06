@@ -1,0 +1,52 @@
+name: ⚡ Live tests
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  coverage-badges-generation:
+    name: 🧑‍🔬 Build action and run transpiled output
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup bun
+        uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version-file: '.node-version'
+          registry-url: 'https://registry.npmjs.org'
+          cache-dependency-path: ./package.json
+
+      - name: 📥 Install deps
+        run: bun install --frozen-lockfile
+
+      - name: 🔍 Tests
+        run: bun test-ci
+
+      - name: ⚙️ Building action
+        run: bun run build
+
+      - name: ❎ Remove badges
+        run: rm -rf ./badges
+
+      - name: 😼 Running action
+        id: local-action-run
+        uses: ./
+        with:
+          badges-icon: vitest
+          badges-labels-prefix: "Repo test coverage"
+          commit-message: "chore: updating coverage badges"
+          commit-user: jpb06
+          commit-user-email: jpb.06@outlook.com
+          no-commit: true
