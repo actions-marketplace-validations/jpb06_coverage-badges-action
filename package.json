@@ -11,7 +11,7 @@
 	"author": "jpb06 <jpb.06@outlook.com>",
 	"license": "MIT",
 	"engines": {
-		"node": "22.x"
+		"node": "24.x"
 	},
 	"scripts": {
 		"update-deps": "bun npm-check-updates --root --format group -i",
@@ -33,28 +33,28 @@
 		"sync-icons": "bun generateReadmeIcons -h 50"
 	},
 	"dependencies": {
-		"@actions/core": "1.11.1",
-		"@actions/exec": "1.1.1",
-		"@actions/github": "6.0.1",
-		"@effect/cluster": "0.53.1",
-		"@effect/platform": "0.93.3",
-		"effect": "3.19.5",
-		"effect-errors": "1.10.17",
+		"@actions/core": "2.0.2",
+		"@actions/exec": "2.0.0",
+		"@actions/github": "7.0.0",
+		"@effect/cluster": "0.56.1",
+		"@effect/platform": "0.94.1",
+		"effect": "3.19.14",
+		"effect-errors": "1.10.22",
 		"glob": "13.0.0",
-		"node-coverage-badges": "1.5.2"
+		"node-coverage-badges": "1.6.2"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.6",
-		"@commitlint/cli": "20.1.0",
-		"@commitlint/config-conventional": "20.0.0",
-		"@types/node": "24.7.2",
-		"@vitest/coverage-v8": "4.0.12",
-		"esbuild": "0.27.0",
-		"npm-check-updates": "19.1.2",
+		"@biomejs/biome": "2.3.11",
+		"@commitlint/cli": "20.3.1",
+		"@commitlint/config-conventional": "20.3.1",
+		"@types/node": "24.10.9",
+		"@vitest/coverage-v8": "4.0.17",
+		"esbuild": "0.27.2",
+		"npm-check-updates": "19.3.1",
 		"readme-package-icons": "1.2.2",
 		"typescript": "5.9.3",
-		"vite-tsconfig-paths": "5.1.4",
-		"vitest": "4.0.12",
+		"vite-tsconfig-paths": "6.0.4",
+		"vitest": "4.0.17",
 		"vitest-mock-extended": "3.1.0"
 	}
 }

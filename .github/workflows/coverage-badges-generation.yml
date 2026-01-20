@@ -16,15 +16,15 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
 
       - name: 📦 Setup bun
-        uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
+        uses: oven-sh/setup-bun@3d267786b128fe76c2f16a390aa2448b815359f3 # v2.1.2
 
       - name: ⎔ Setup node
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version-file: '.node-version'
           registry-url: 'https://registry.npmjs.org'
@@ -44,7 +44,7 @@ jobs:
         uses: ./
         with:
           badges-icon: vitest
-          badges-labels-prefix: "Repo test coverage"
+          badges-labels-prefix: "Test coverage –"
           commit-message: "chore: updating coverage badges"
           commit-user: jpb06
           commit-user-email: jpb.06@outlook.com
