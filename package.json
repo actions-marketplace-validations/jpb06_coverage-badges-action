@@ -1,7 +1,7 @@
 {
 	"name": "coverage-badges-action",
 	"description": "Generates coverage badges and pushes them to the repo",
-	"version": "1.4.5",
+	"version": "1.4.11",
 	"main": "lib/main.js",
 	"type": "module",
 	"repository": {
@@ -14,7 +14,7 @@
 		"node": "24.x"
 	},
 	"scripts": {
-		"update-deps": "bun npm-check-updates --root --format group -i",
+		"update-deps": "bunx npm-check-updates --root --format group -i",
 		"clean-dist": "rm -rf ./dist && rm -rf ./lib",
 		"build": "bun clean-dist && esbuild ./src/main.ts --bundle --tsconfig=tsconfig.prod.json --minify --sourcemap --outfile=./lib/main.js --platform=node",
 		"postbuild": "echo '{\"type\": \"commonjs\"}' > lib/package.json",
@@ -33,28 +33,26 @@
 		"sync-icons": "bun generateReadmeIcons -h 50"
 	},
 	"dependencies": {
-		"@actions/core": "2.0.2",
-		"@actions/exec": "2.0.0",
-		"@actions/github": "7.0.0",
-		"@effect/cluster": "0.56.1",
-		"@effect/platform": "0.94.1",
-		"effect": "3.19.14",
-		"effect-errors": "1.10.22",
-		"glob": "13.0.0",
-		"node-coverage-badges": "1.6.2"
+		"@actions/core": "3.0.1",
+		"@actions/exec": "3.0.0",
+		"@actions/github": "9.1.1",
+		"@effect/cluster": "0.58.2",
+		"@effect/platform": "0.96.1",
+		"effect": "3.21.2",
+		"effect-errors": "1.10.24",
+		"glob": "13.0.6",
+		"node-coverage-badges": "1.6.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.11",
-		"@commitlint/cli": "20.3.1",
-		"@commitlint/config-conventional": "20.3.1",
-		"@types/node": "24.10.9",
-		"@vitest/coverage-v8": "4.0.17",
-		"esbuild": "0.27.2",
-		"npm-check-updates": "19.3.1",
-		"readme-package-icons": "1.2.2",
-		"typescript": "5.9.3",
-		"vite-tsconfig-paths": "6.0.4",
-		"vitest": "4.0.17",
-		"vitest-mock-extended": "3.1.0"
+		"@biomejs/biome": "2.4.13",
+		"@commitlint/cli": "20.5.3",
+		"@commitlint/config-conventional": "20.5.3",
+		"@types/node": "25.6.0",
+		"@vitest/coverage-v8": "4.1.5",
+		"esbuild": "0.28.0",
+		"readme-package-icons": "1.2.3",
+		"typescript": "6.0.3",
+		"vitest": "4.1.5",
+		"vitest-mock-extended": "4.0.0"
 	}
 }
